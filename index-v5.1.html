@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>v5 编写 jquery plug-in 学习</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .tab {
+            width: 600px;
+            height: 300px;
+            border: 1px solid #ccc;
+        }
+        
+        /*#tab > div {
+            display: none;
+        }*/
+        
+        .tab_header {
+            height: 50px;
+            line-height: 50px;
+            border-bottom: 1px solid #ccc;
+            display:block;
+        }
+        .tab_content_item{
+            display:none;
+        }
+        .tab_header ul li {
+            float: left;
+            width: 200px;
+            text-align: center;
+        }
+        
+        .tab_content .active {
+            display: block;
+        }
+        .tab_header .active{
+             background: #ccc;
+        }
+</style>   
+<body>
+    <div class="tab">
+    </div>
+    <script src="./js/jquery-1.10.2.min.js"></script>
+    <script src="./js/tab-v5.1.js"></script>
+    <script src="./js/ejs_production.js"></script>
+    <script>
+        $(function(){
+            var tabItems=[{"sortNum":1,"des":"i am first tabPage"},
+                      {"sortNum":2,"des":"i am second tabPage"},
+                      {"sortNum":3,"des":"i am third tabPage"}
+            ]
+            var data={tabItems:tabItems};
+            // var html = new EJS({url:'./temp5.ejs'}).render(data)
+            // $(".tab")[0].innerHTML = html;               
+            $('.tab').tab({
+                data:data,
+                trigger_event_type:'click', //mouseover | click 默认是click
+            });
+            
+        
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+        <ul id="tab_btn">
+            <% if(tabItems.length){ %>
+                <% tabItems.forEach(function(item){%>
+                    <li><%= item.sortNum %></li>
+                <%})%>
+            <% } %>
+        </ul>
+        <% if(tabItems.length){ %>
+            <% tabItems.forEach(function(item){ console.log(item.sortNum);%>
+                <div><%= item.des %></div>
+            <%})%>
+        <% } %>

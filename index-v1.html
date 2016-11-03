@@ -48,30 +48,18 @@
     <select class="demo1"></select>
     <script src="./js/jquery-1.10.2.min.js"></script>
     <script src="./js/dlpcustomselect.js" ></script>
-    <script src="./js/ejs.min.js"></script>
-    <script id="users" type="text/template">
-        <ul id="tab_btn">
-            <% if(tabItems.length){ %>
-                <% tabItems.forEach(function(item){%>
-                    <li><%= item.sortNum %></li>
-                <%})%>
-            <% } %>
-        </ul>
-        <% if(tabItems.length){ %>
-            <% tabItems.forEach(function(item){ console.log(item.sortNum);%>
-                <div><%= item.des %></div>
-            <%})%>
-        <% } %>
-    </script>
+  
+    <script src="./js/ejs_production.js"></script>
     <script>
     $(function(){
         var tabItems=[{"sortNum":1,"des":"i am first tabPage"},
                       {"sortNum":2,"des":"i am second tabPage"},
                       {"sortNum":3,"des":"i am third tabPage"}
             ]
-        var container=  document.getElementById('users').innerHTML;
-
-        var html = ejs.render(container, { tabItems: tabItems });
+        var data={tabItems:tabItems};
+        //var container=  document.getElementById('users').innerHTML;
+        var html = new EJS({url:'./temp.ejs'}).render(data)
+       // var html = ejs.render(container, { tabItems: tabItems });
         //$("#tab").append(html);
          $("#tab")[0].innerHTML = html; 
     })
@@ -91,4 +79,3 @@
 </html>
 
 
-/* 给Jquery动态添加的元素添加事件https://www.zhihu.com/question/25525300*/
