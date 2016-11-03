@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>v3 编写 jquery plug-in 学习</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .tab {
+            width: 600px;
+            height: 300px;
+            border: 1px solid #ccc;
+        }
+        
+        /*#tab > div {
+            display: none;
+        }*/
+        
+        .tab_header {
+            height: 50px;
+            line-height: 50px;
+            border-bottom: 1px solid #ccc;
+            display:block;
+        }
+        .tab_content_item{
+            display:none;
+        }
+        .tab_header ul li {
+            float: left;
+            width: 200px;
+            text-align: center;
+        }
+        
+        .tab_content .active {
+            display: block;
+        }
+        .tab_header .active{
+             background: #ccc;
+        }
+</style>   
+<body>
+    <div class="tab">
+        <div class="tab_header">
+            <ul>
+                <li class="active">选项卡一</li>
+                <li>选项卡二</li>
+                <li>选项卡三</li>
+            </ul>
+        </div>
+        <div class="tab_content">
+            <div class='tab_content_item active'>
+                我是第一个内容
+            </div>
+            <div class='tab_content_item'>
+                我是第二个内容
+            </div>
+            <div class='tab_content_item'>
+                我是第三个内容
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-1.10.2.min.js"></script>
+    <script src="./js/tab-v3.js"></script>
+    <script>
+        $(function(){
+            $('.tab').tab(); 
+        });
+    </script>
+
+</body>
+
+</html>
